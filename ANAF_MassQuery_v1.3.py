@@ -100,7 +100,7 @@ elif choice==5:
 
     print("Validate VAT split status for vendors")
     
-    print("VAT ID$NAME$ADDRESS$VAT SPLIT START DATE$VAT SPLIT END DATE$VAT CODE") #Header EN
+    print("VAT ID$NAME$ADDRESS$VAT SPLIT START DATE$VAT SPLIT END DATE$VAT CODE$IBAN") #Header EN
 
 elif choice==6:
 
@@ -132,7 +132,7 @@ while loop:
             
             params = json.dumps(newConditions).encode('utf8')
 
-            conditionsSetURL = 'https://webservicesp.anaf.ro:/PlatitorTvaRest/api/v3/ws/tva'
+            conditionsSetURL = 'https://webservicesp.anaf.ro:/PlatitorTvaRest/api/v4/ws/tva'
 
             req = urllib.request.Request(conditionsSetURL, data=params,headers={'content-type': 'application/json'})
         
@@ -196,11 +196,11 @@ while loop:
 
             elif choice==5:
 
-                                    print("cui $ denumire $ adresa  $ dataInceputSplitTVA $ dataAnulareSplitTVA $ cui") #ANAF Web service fields
+                                    print("cui $ denumire $ adresa  $ dataInceputSplitTVA $ dataAnulareSplitTVA $ cui $ IBAN") #ANAF Web service fields
 
                                     for item in partners ['found']:
                                                                   
-                                            print (item['cui'],"$",item['denumire'],"$",item['adresa'],"$",item['dataInceputSplitTVA'],"$",item['dataAnulareSplitTVA'],"$",str(item['cui']))
+                                            print (item['cui'],"$",item['denumire'],"$",item['adresa'],"$",item['dataInceputSplitTVA'],"$",item['dataAnulareSplitTVA'],"$",str(item['cui']),"$",item['iban'],)
 
             ## printing out variables for control
 
